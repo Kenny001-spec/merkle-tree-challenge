@@ -10,11 +10,12 @@ function createMerkleTree() {
       "0x054af4269e35201f9204f6b896d72248c8894c1b",
     ];
 
-    console.info("Whitelist of addresses:", addressList);
+    console.info("List of eligible addresses:", addressList);
 
     const hashedLeaves = addressList.map((addr) =>
       hashFunction(addr).toString()
     );
+    
     const tree = new window.MerkleTree(hashedLeaves, hashFunction);
     const rootHash = tree.getRoot().toString("hex");
 
